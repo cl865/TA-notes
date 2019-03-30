@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{enumitem}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[LGRgreek]{mathastext}
+\usepackage{framed}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\begin{document}
+\title{5. Probability}
+\begin{center} \textbf{ILRST/STSCI 2100: Discussion 5: Ch. 6 Probability (Review) and Ch. 7 Random Variable }
+\end{center}
+
+\noindent \textbf{Review from last week:} \\
+
+Addition rule: P(A or B) $= P(A) + P(B) - $P(A and B)\\
+
+Multiplicative rule: P(A and B) $= P(A|B) \times P(B) = P(B|A)\times P(A)$\\
+
+Complement: $P(A^c) = 1 - P(A)$ \\
+
+Conditional probability: $P(A|B) = \frac{P(A \text{ and } B)}{P(B)}$\\
+
+\noindent Some helpful "formulas" - can derive with drawing Venn Diagrams: \\
+
+\noindent P(A) = P(A and $B^c)$ + P(A and B), similarly, P(B) = P($A^c$ and B) + P(A and B)\\
+
+\noindent P(A or B or C) = P(A) + P(B) + P(C) - P(A and B) - P(A and C) - P(B and C) + P(A and B and C)\\
+
+\noindent \textbf{Independence} : $P(A|B) = P(A)$ and $P(B|A) = P(B)$ \\
+
+\noindent Note: The multiplication rule: $P(A \cap B) = P(A|B) * P(B)$ \\ 
+
+\noindent So $P(A \cap B) = P(A) * P(B)$ when $A$ and $B$ are independent. \\
+
+\noindent Errors typically arise when you assume $A$ and $B$ are independent and do calculations as if they are independent events. Always assume dependence, unless you have shown otherwise. \\
+
+\noindent Note: Independent events vs mutually exclusive events:
+\begin{itemize}
+	\item Mutually exclusive events are not independent
+	\begin{itemize}
+		\item Flipping a head and a tail are mutually exclusive (they can't both happen at the same time). So, you if flip a head, then you know that you didn't flip a tail. That is, prior knowledge (head), helped you make a statement about probability of flipping tail, meaning these are not independent events. 
+	\end{itemize}
+	\item Independent events cannot be mutually exclusive
+		\begin{itemize}
+		\item If two events are independent, $P(A \cap B) = P(A)*P(B)$ is nonzero, implying both can happen at the same time, meaning not mutually exclusive. 
+	\end{itemize}
+\item Exception, independent events appear mutually exclusive when $P(A)$ or $P(B)$ is $0$. \\
+\end{itemize}
+
+\noindent \textbf{Random Variables}\\
+Either discrete (countable) or continuous (any number on the number line)\\
+Denoted with a capital letter, ex. "X"\\
+
+\noindent Random variables are associated with a probability function\\
+\underline{Discrete:} probability mass function (pmf)\\
+
+f(x) = P(X = x) denotes the probability of observing x \\
+
+$ 0 \leq f(x) \leq 1$ and $\sum_x f(x) = 1$
+
+Ex. Let X be a random variable that is the number of tails when you flip 3 coins. What is the p.m.f of X?\\
+
+\noindent \underline{Continuous:} probability density function (p.d.f) \\
+
+$f(x) \geq 0$ for all x\\
+
+$\int_{-\infty}^{+\infty} f(x) dx = 1$ : area under the entire curve is 1.\\
+
+For a continuous (only!) variable, $P(a \leq X \leq b) = P(a < X < b)$, can be thought of as the area under the curve bounded by a range. And this is because P(X = x) = 0 for a continuous variable.\\
+
+Ex. What is the probability that a car on the road is going 65 mph?\\
+
+\noindent \textbf{Expected value} \\
+
+The center/mean of a random variable $X$, $E(X) = \mu$, in the discrete case, this is: $E(X) = \sum_{x} xf(x) = \mu$ \\
+
+Variance of a discrete random variable: $Var(X) = \sigma^2 = E[(X -\mu)^2] = \sum_x (x - \mu)^2f(x)$ Given the following p.m.f, find the variance:\\
+
+Standard Deviation = Square root of variance\\
+
+\noindent \textbf{Practice Problems:}
+Given P(A) = 0.5; P(B) = 0.2; P(C) = 0.2
+\begin{enumerate}
+\item Are A, B, and C the only elements in the sample space?
+\item If A and B are independent, what is $P(A \cap B)?$
+\item If A and B are mutually exclusive, what is $P(A \cup B)?$
+\item Now suppose $P(A \cap B) = 0.2$. What is $P(A|B)?$
+
+\end{enumerate}
+
+\noindent \textbf{Answers:}
+\begin{enumerate}
+\item No, we can find P(A)+P(B)+P(C) = 0.9, which isn't equal to one, so there must be more element(s) in the sample space. 
+\item Since $A$ and $B$ are independent, $P(A \cap B) = P(A)*P(B) = 0.5*0.2 = 0.1$
+\item Using the general additional rule: $P(A \cup B) = P(A) + P(B) - P(A\cap B)$ 
+Since $A$ and $B$ are mutually exclusive, $P(A \cup B) = 0$, so $P(A \cup B) = P(A) + P(B) - 0 = 0.2 + 0.5 -0 = 0.7$. 
+\item $P(A|B) = \cfrac{P(A \cap B)}{P(B)} = \cfrac{0.2}{0.2} = 1$
+\end{enumerate}
+\end{document}

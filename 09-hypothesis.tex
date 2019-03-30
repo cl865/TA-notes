@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{enumitem}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[LGRgreek]{mathastext}
+\usepackage{framed}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\begin{document}
+\title{9. Hypothesis Testing}
+\begin{center} \textbf{ILRST/STSCI 2100 Discussion 9: Ch 10 One Sample Hypothesis Testing}
+\end{center}
+ 
+\noindent \textbf{Reminders:} (1) Prelim next Thursday in class (2) No discussion next Friday \\
+
+\noindent \textbf{Hypothesis Testing:} Comparing experimental data to a claim, or population value. \\
+\noindent Steps:
+\begin{enumerate}
+\item State the null hypothesis, $H_{0}$\\
+This is the status quo or "claim"
+$H_{0}: \mu = \mu_{0}$\\
+ Ex. $H_{0}:$ $\mu = 5$ \\
+Note, must have equal sign and must be related to a population parameter (ie. $\mu$ or $p$)
+\item State alternative hypothesis, $H_{a}$\\
+Ex. $H_{a}: \mu > 5$ or $H_{a}: \mu < 5$ (more general, $H_{a}: \mu > \mu_{0}$ or $H_{a}: \mu < \mu_{0}$) these are one-sided \\
+\hspace*{.73cm} $H_{a}: \mu \neq 5$ (more general, $H_{a}: \mu \neq \mu_{0}$) this is two-sided\\
+Note, also written in terms of parameters
+\item Calculate test statistic \\
+Depends on whether you know $\sigma$\\
+If you know $\sigma$: $z=\cfrac{\bar{x}-\mu_{0}}{\sigma/\sqrt{n}}$\\
+Here, $\mu_{0}$ is the value associated with the null hypothesis.\\
+It is more likely that you don't know $\sigma$, so you'll have to use the t-distribution, $t=\cfrac{\bar{x}-\mu_{0}}{s/\sqrt{n}}$
+
+\item Finding a p-value\\
+Depends on alternative hypothesis.\\
+When $H_{a}: \mu > \mu_{0}$, p-value = $P(T>\cfrac{\bar{x}-\mu_{0}}{\frac{s}{\sqrt{n}}})$\\
+When $H_{a}: \mu < \mu_{0}$, p-value = $P(T<\cfrac{\bar{x}-\mu_{0}}{\frac{s}{\sqrt{n}}})$\\
+When $H_{a}: \mu \neq \mu_{0}$, p-value = $2*P(T > \mid \cfrac{\bar{x}-\mu_{0}}{\frac{s}{\sqrt{n}}}\mid)$\\
+
+\item Making a decision about null hypothesis\\
+If p-value $< \alpha$, then reject null hypothesis.\\
+If $p-value > \alpha$, then fail to reject null hypothesis. (don't write "accept null hypothesis") \\
+
+Similar for proportions:\\
+Calculate the z-score with $z=\cfrac{\hat{p}-p_{0}}{\sqrt{\cfrac{p_{0}(1-p_{0})}{n}}}$ \\
+Be sure to check that $n*p>10$ and $n*(1-p)>10$ \\
+
+\end{enumerate}
+
+\noindent \textbf{Errors:} \\
+\noindent Type I Error: "a false positive"\\
+\noindent When you reject a true null hypothesis \\
+\noindent The probability of a Type I error is the $\alpha$ level.\\
+\\
+\noindent Type II Error: "a false negative"\\
+\noindent When you fail to reject a false null hypothesis \\
+\noindent The probability of a type II error is denoted by $\beta$.\\
+Check lecture notes for example of calculating probability of Type II error.\\
+
+\noindent \textbf{Practice Problems:} \\
+\noindent A scientist is interested in testing the claim that the average salinity of the nearby lake is 35 ppm. However, some are concerned that the salinity is above average. 41 samples of lake water are taken, and the mean is found to be 37 ppm, with a standard deviation of 3 ppm. Do the data support the claim? \\
+
+\noindent In general, with a two sided alternative hypothesis, would you be more likely to reject a null hypothesis? \\
+
+\noindent True or false: The p-value is the probability of accepting the null hypothesis. If false, provide the definition of a p-value. \\
+
+\noindent \textbf{Answers:} \\
+$H_{0}: \mu = 35\ ppm$ \\
+$H_{a}: \mu > 35\ ppm$ \\
+$T = \cfrac{37-35}{3/\sqrt{41}} = 4.27$, with $df = 41 - 1 = 40$ \\
+Using table 3, we see that the central area is greater than 99.9\%, which means that the area under the upper tail must be less than .05\%.\\
+Using an $\alpha = 0.05$, the p-value is less than $alpha$, we we can reject the null hypothesis and conclude that the salinity in the lake is greater than average. \\
+\\
+No, since p-value for two-sided alternative hypothesis is larger; two-sided tests are more conservative (more stringent to reject null). \\
+\\
+False, p-value is the probability of obtaining an observation equally or more extreme than the one you have observed, assuming the null hypothesis is true. \\
+
+\end{document}

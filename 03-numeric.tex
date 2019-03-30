@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{enumitem}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[LGRgreek]{mathastext}
+\usepackage{framed}
+\setlength{\parskip}{1em}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\begin{document}
+
+\begin{center}
+\textbf{ILRST/STSCI 2100 Discussion 3: Ch. 4 Numerical Methods}
+\end{center}
+
+\noindent \textbf{Review summations}
+\begin{itemize}
+\item Suppose $c$ is a constant, then $\sum_{i=1}^{n} c = n*c$\\
+
+\indent Ex. $\sum_{i=1}^3 2 = 2+2+2 = 3*2 = 6$ \\
+
+\item $\sum_{i=1}^{n}( a_{i}+b_{i}) = \sum_{i=1}^{n}a_{i} + \sum_{i=1}^{n} b_{i}$ \\
+
+\indent Ex. Suppose $a = \{1,2,3,4\}$ and $b=\{5,6,7,8\}$ \\
+\indent $\sum_{i=1}^{4}(a_{i}+b_{i}) = \sum_{i=1}^{4}a_{i}+\sum_{i=1}^{4}b_{i}= 10 + 26 = 36$ \\
+\item Similarly, $\sum_{i=1}^{n} a_{i} - b_{i} = \sum_{i=1}^{n} a_{i} - \sum_{i=1}^{n} b_{i}$ \\
+\item \textbf{Note:} $\sum a_{i}b_{i} \neq \sum a_{i} \sum b_{i}$ 
+
+\end{itemize}
+
+\noindent \textbf{Mean}
+
+$\bar{x} = \cfrac{\sum_{i=1}^{n} x_{i}}{n}$ \hspace{8pt} "sum all the values and divide by the number of values you have"\\
+
+\noindent Ex. $x=\{3,1,8,4,6,3,8,3\}$ Find the mean of x.\\
+
+$\begin{aligned}
+\bar{x} = \cfrac{\sum x_{i}}{n} &= \cfrac{3+1+8+4+6+3+8+3}{8} \\
+&=\cfrac{36}{8} = 4.5
+\end{aligned}$
+
+\noindent \textbf{Trimmed Mean} \\
+Finding the mean after removing some percent of large values and small values. Make sure data is first sorted. The purpose of trimming is to remove possible outliers\\
+\noindent Ex. $x=\{1,2,3,4,5,6,7,8,9\}$ Find the 10\% trimmed mean of $x$. 
+\begin{enumerate}
+\item The sample size is 9, as there are 9 values in $x$. 
+\item 10\% of $9$ is 0.9, we round to the nearest integer, so we remove 1 item from the high end and 1 item from the small end.
+\item After trimming, the set is \{2,3,4,5,6,7,8\}
+\item Calculate the mean: $\cfrac{2+3+4+5+6+7+8}{7} = 35/7$
+\end{enumerate}
+
+\noindent \textbf{Median} \\
+The middle value. The median is a robust statistic, meaning it is resistant to outliers and changes in small portions data. \\
+\noindent This measure is preferred over the mean when there are outliers or skewed data. \\
+Ex. For $x=\{1,2,3,4,5\}$, the median is 3. \\
+\indent \hspace{5pt}For $x=\{1,2,3,4,5,6\}$, the median is the average of the two "middle terms", 3.5 \\
+
+\noindent \textbf{Quartiles} \\
+Divide the data into fourths, Q1 = 25th percentile, Q2 = median = 50th percentile, Q3 = 75th percentile \\
+$IQR = Q3 - Q1$ \\
+Mild outlier: falls outside the range of $Q1-1.5*IQR$ and $Q3+1.5*IQR$ \\
+Extreme outlier: falls outside the range of $Q1-3*IQR$ and $Q3+3*IQR$ \\
+
+\noindent \textbf{Range:}\\
+Measure of variation,  
+$max - min$
+
+\noindent \textbf{Standard Deviation:} \\
+\vspace{5mm}
+$s=\sqrt{\cfrac{\sum(x_{i}-\bar{x})^{2}}{n-1}}$\\
+The sample variance is denoted as $s^{2}$ \\
+Note that $s_{xx} = \sum(x_{i}-\bar{x})^{2} = \sum_{i = 1}^n x_{i}^2-\frac{(\sum_{i=1}^nx_i)^2}{n}$  \\
+Also note: $\sum_i x_i^2 \neq (\sum_i x_i)^2$
+
+\noindent\textbf{z-score:} \\
+\noindent z score = $\cfrac{value-mean}{standard deviation}$ \\
+
+\noindent Calculating z-scores is also called standardization
+
+\noindent \textbf{Parameter vs Statistic:} \\
+A parameter is a value about the population, and a statistic is a value about the sample.
+\begin{itemize}
+\item Mean: $\mu$ vs $\bar{x}$
+\item Variance: $\sigma^{2}$ vs $s^{2}$
+\item Proportion: $p$ vs $\hat{p}$
+\end{itemize}
+
+
+
+\end{document}

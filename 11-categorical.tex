@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{enumitem}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[LGRgreek]{mathastext}
+\usepackage{framed}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\title{11. Categorical Data}
+
+\begin{document}
+\begin{center}
+\textbf{Ch. 12 Analysis of Categorical Data and Goodness of Fit Tests}
+\end{center}
+
+\noindent \textbf{Goodness of Fit}\\
+\noindent Given a sample with $k$ categories, tests how well the sample fits the hypothesized distribution. \\
+Assumptions:\\
+--Random sample and all expected counts are greater than 5.
+\begin{enumerate}
+\item
+$H_{0}: p_{i}=p_{i0}$ for all i=1,2,...,k
+\item
+$H_{a}: p_{i} \neq p_{i0}$ for at least one i=1,2,...,k \\
+Note: the alternative is always two-sided
+\item
+Test statistic: \\
+$\chi_{obs}^{2}=\sum_{i=1}^{k}\cfrac{(O_{i}-E_{i})^{2}}{E_{i}}$
+\item
+Find p-value\\
+$pvalue = P(\chi^{2}>\chi_{obs}^{2})$, with $df = k-1$\\
+pvalue is always the area in the upper tail region
+\end{enumerate}
+
+\noindent \textbf{Ex.} Rolling a die 36 times, test the null hypothesis that the a die is a fair die given the observation:\\
+1: 4 times; 2: 7 times; 3: 5 times; 4: 6 times; 5: 8 times; 6: 6 times \\
+\\
+\noindent There are 6 categories,\\
+$H_{0}: p_{i} = 1/6$ for $i=1, 2, ..., 6$\\ 
+$H_{a}: p_{i} \neq 1/6$ for at least 1 $i=1, 2, ..., 6$\\
+\\
+\noindent If this is a fair die, we would expect 6 throws for each face.\\
+\\
+$\chi_{obs}^{2} = \cfrac{(4-6)^{2}}{6}+\cfrac{(7-6)^{2}}{6}+\cfrac{(5-6)^{2}}{6}+\cfrac{(6-6)^{2}}{6}+\cfrac{(8-6)^{2}}{6}+\cfrac{(6-6)^{2}}{6}=1.67$\\
+\\
+The $df=6-1=5$, $pvalue = P(\chi^{2}>1.67)$, using Table 8, $pvalue > .1$\\
+Since the pvalue is less than $\alpha$, we fail to reject the null hypothesis and conclude that the die is fair. \\
+
+\noindent \textbf{Chi-square test of homogeneity in a contingency table:}\\
+
+\begin{center}
+\begin{tabular}{ c c c c c c c c}
+ Year & CALS & Engineering & ILR & AS&Total\\ 
+ Freshman & 30 & 40 &20 &40 &130 \\  
+ Sophomore & 20 & 50 &30 &40&140 \\
+ Junior & 30 & 20 &35 &55 &140 \\  
+ Senior & 35 & 25 &15 &30 & 105 \\
+ \hline
+ Total &115 & 135 &100 & 165 &515
+\end{tabular}
+\end{center}
+
+\noindent Test at 5\% significance level that the distribution of student's affiliated college is evenly distributed among class year. \\
+
+\noindent $H_{0}: p_{1j}=p_{2j}=...=p_{rj}$, for all j\\
+
+\noindent $H_{a}:$ at least one $p_{ij}$ differs
+
+\noindent First generate the expected values table using the formula: $E_{ij} = \cfrac{RowTotal * ColumnTotal}{GrandTotal}$\\
+
+
+\begin{center}
+\begin{tabular}{ c c c c c c c c}
+ Year & CALS & Engineering & ILR & AS&Total\\ 
+ Freshman & 29 & 34 &25 &42 &130 \\  
+ Sophomore & 31 & 37 &27 &45&140 \\
+ Junior & 31 & 37 &27 &45 &140 \\  
+ Senior & 23 & 28 &20 &34 & 105 \\
+ \hline
+ Total &114 & 136 &99 & 166 &515
+\end{tabular}
+\end{center}
+
+\noindent Due to rounding, the row and column totals may be slightly off. Note that all expected values are greater than 5. \\
+
+\noindent Next, calculate $\chi^{2}_{obs}$.\\
+\\
+$\chi^{2}_{obs} = \cfrac{(30-29)^{2}}{29}+\cfrac{(40-34)^{2}}{34}+\cfrac{(20-25)^{2}}{25}+...$, repeat for each cell of the table, so in total, you should have the summation of 16 fractions. \\
+
+\noindent Next, find p-value. The $df = (r-1)(k-1) = (4-1)(4-1) = 9$, where r is the number of rows and k is the number of columns. \\
+
+\noindent Lastly, compare p-value to alpha. \\
+
+\noindent \textbf{The chi-square test for independence:}\\
+\begin{itemize}
+\item
+$H_{0}:$ The two categorical variables are independent.
+\item
+$H_{a}:$ The two categorical variables are not independent.
+\item
+\noindent Test statistic: $\chi^{2}_{obs}$ (same formula)
+\item
+\noindent pvalue = $P(\chi^{2}_{obs} > \chi^{2}_{obs})$, and df = (number of rows - 1)*(number of columns - 1)
+\item
+\noindent Compare to $\alpha$.
+\end{itemize}
+
+
+
+\end{document}
+
+

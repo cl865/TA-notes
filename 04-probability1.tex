@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage{enumitem}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[LGRgreek]{mathastext}
+\usepackage{framed}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\begin{document}
+
+\begin{center}
+\textbf{ILRST/STSCI 2100 Discussion 4: Ch. 6 Probability}
+\end{center}
+
+\noindent \textbf{Probability:} Numerical quantity that expresses the likelihood of an event. \\
+Can be thought of the long-term relative frequency of an event happening.\\
+
+\noindent \textbf{Sample space:} All possible outcomes for an experiment.\\
+Ex. What is the sample space of flipping two coins?\\
+
+\noindent \textbf{Event:} Collection of outcomes with a designated feature. It is a subset of the sample space.\\
+Ex. When flipping two coins, what are the possible events of getting at least one tail?\\
+
+\noindent Can use a tree diagram to keep track of sample space and events.\\
+
+\noindent \textbf{Subset:} Denoted by $\subset$\\
+\noindent Ex. If $B = \{1,2,3,4,5,6,7\}$, $A = \{2,4,6\}$ and $C = \{6,7,8\}$, is $A \subset B$? Is $C \subset B$?\\
+
+\noindent \textbf{Complement:} Denoted by $A^{C}$, any event such that $A$ does not occur\\
+\noindent Ex. Suppose $A$ is the event of flipping heads, then what is $A^{C}$?\\
+
+\noindent \textbf{Union:}  Given two sets $A$ and $B$, $A \cup B$ are the elements that fall in either $A$, $B$ or both. \\
+Ex. A = \{apple, orange, banana\} and B = \{orange, watermelon, pear\}. What is $A \cup B$?\\
+
+\noindent \textbf{Intersection:} Given two sets $A$ and $B$, $A \cap B$ are the elements that fall in both $A$ and $B$. \\
+Ex. With A and B given above, what is $A \cap B$?\\
+
+\noindent With numbers, if $A = \{1, 4, 5, 7, 8, 9\}$ and $B = \{1, 2, 6, 7, 10\}$, then, \\
+$A \cup B = \{1, 2, 4, 5, 6, 7, 8, 9, 10\}$ \\
+$A \cap B = \{1, 7\}$ \\
+$A \cap B^{C} = \{4, 5, 8, 9\}$ \\
+$A^{C} \cap B = \{2, 6, 10\}$ \\
+Notice that $A \cap B + A \cap B^{C} = A$ and similarly, $A \cap B + A^{C} \cap B = B$. \\
+
+\noindent Can also show graphically with Venn Diagrams \\
+
+\noindent \textbf{Probability Axioms}
+\begin{enumerate}[noitemsep]
+\item $P(A) > 0$\\
+\item $P(S) = 1$\\
+Ex. Suppose P(A) = 0.3, P(B) = 0.2, and P(C) = 0.4. Are A, B, and C the only elements in the set?
+\item $P(A_1\ or\ A_2\ or\ ...\ or\ A_n) = P(A_1)+P(A_2) + ... + P(A_n)$, assuming that no two events can happen at the same time.
+\end{enumerate}
+
+\noindent \textbf{Implications}
+\begin{enumerate}[noitemsep]
+\item Complement Rule: $P(A) = 1 - P(A^C)$ \\
+Ex. When rolling a weighted die, the probability of it landing a "2" is 1/3. What is the probability of not landing a "2"?
+\item Addition Rule: $P(A\ or\ B) = P(A) +P(B) - P(A \cap B)$ \\
+Ex. If $P(A^C) = 0.3$, $P(B) = 0.2$ and $P(A \cap B) = 0.1$, then what is P(A or B)?
+\end{enumerate}
+\noindent \textbf{Conditional Probability}\\
+\noindent "Probability of A given B" \\
+$P(A|B) = \cfrac{P(A \cap B)}{P(B)}$\\
+Multiplication rule of probability: $P(A \cap B) = P(B)*P(A|B) = P(A)*P(B|A)$\\
+
+\noindent Can be visualized using a Venn Diagram\\
+\noindent Applicable for contingency tables
+
+
+\end{document}
